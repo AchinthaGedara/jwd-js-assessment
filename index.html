@@ -8,13 +8,14 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  
   <title>Quiz</title>
 </head>
 
 <body>
   <div class="container m-5" id="start">
     <div class="card" style="width: 18rem">
-      <div class="card-body">
+      <div class="card-body"> 
         <h5 class="card-title">Test your knowledge</h5>
         <p class="card-text">Some quick description about the quiz .</p>
         <a class="btn btn-primary">Start</a>
@@ -26,7 +27,7 @@
   <div class="container" id="quizBlock" style="display: none">
     <div class="mb-5">
       <h2>Test your knowledge</h2>
-      - Time remaining <span id="time">01:00</span>
+      - Time remaining:  <span id="time" style="color:rgb(32, 216, 42);"></span>
     </div>
     <div id="quizWrap"></div>
 
@@ -37,7 +38,7 @@
       <button type="button" class="btn btn-primary btnReset1" id="btnReset">
         Reset Quiz
       </button>
-      <span id="score"></span>
+      <span id="score" style="color:red;"></span>
     </div>
   </div>
 
