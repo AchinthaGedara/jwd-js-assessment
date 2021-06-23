@@ -81,6 +81,7 @@ quizBlock.addEventListener("click", (event) => {
   if (event.target.classList.contains("btnSubmit1"))
   {
     calculateScore();
+    document.querySelector(".btnSubmit1").style.display="none";
   }
  // Reset content
   if (event.target.classList.contains("btnReset1"))
@@ -88,6 +89,53 @@ quizBlock.addEventListener("click", (event) => {
     location.reload();    
   }
 });
+
+//----------------------------
+//CountDown Timer
+const countDownTimer= () =>{
+
+  var sec         = 25,
+      countDiv    = document.getElementById("time"),
+      secpass,
+      countDown   = setInterval(function () {
+          'use strict';
+          
+          secpass();
+      }, 1000);
+  
+  function secpass() {
+      'use strict';
+      
+      var min     = Math.floor(sec / 60),
+          remSec  = sec % 60;
+      
+      if (remSec < 10) {
+          
+          remSec = '0' + remSec;
+      
+      }
+      if (min < 10) {
+          
+          min = '0' + min;
+      
+      }
+      countDiv.innerHTML = min + ":" + remSec;
+      
+      if (sec > 0) {
+          
+          sec = sec - 1;
+          
+      } else {
+          
+          clearInterval(countDown);          
+          countDiv.innerHTML = 'Time Up';
+          calculateScore();
+          document.querySelector(".btnSubmit1").style.display="none";
+          
+      }
+  }
+  
+  }
 
   // Calculate the score
   const calculateScore = () => {
@@ -102,7 +150,7 @@ quizBlock.addEventListener("click", (event) => {
 
         if (quizItem.a == i) {
           //change background color of li element here
-          liElement.style.backgroundColor= "#FDFF47";
+          liElement.style.backgroundColor= "#5BF1E6";
         }
 
         if (radioElement.checked) {
@@ -116,7 +164,7 @@ quizBlock.addEventListener("click", (event) => {
       }
     });
     // Display Score    
-    document.getElementById('score').innerHTML=`Score is ${score}/5`;
+    document.getElementById('score').innerHTML=`Score is: ${score}/5`;
     
   };
 
@@ -124,48 +172,3 @@ quizBlock.addEventListener("click", (event) => {
   displayQuiz();
 });
 
-//----------------------------
-//CountDown Timer
-const countDownTimer= () =>{
-
-var sec         = 18,
-    countDiv    = document.getElementById("time"),
-    secpass,
-    countDown   = setInterval(function () {
-        'use strict';
-        
-        secpass();
-    }, 1000);
-
-function secpass() {
-    'use strict';
-    
-    var min     = Math.floor(sec / 60),
-        remSec  = sec % 60;
-    
-    if (remSec < 10) {
-        
-        remSec = '0' + remSec;
-    
-    }
-    if (min < 10) {
-        
-        min = '0' + min;
-    
-    }
-    countDiv.innerHTML = min + ":" + remSec;
-    
-    if (sec > 0) {
-        
-        sec = sec - 1;
-        
-    } else {
-        
-        clearInterval(countDown);
-        
-        countDiv.innerHTML = 'countdown done';
-        
-    }
-}
-
-}
